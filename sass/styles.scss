@@ -1,0 +1,483 @@
+// customize bootstrap variables here:
+@import "variables";
+@import "bootstrap";
+@import "compass/css3";
+@import "compass/utilities";
+
+.navbar-brand {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 1.8em;
+}
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* Space out content a bit */
+body {
+    // padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+    margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+    margin: 40px 0;
+}
+
+.marketing p + h4 {
+    margin-top: 28px;
+}
+
+/* Sidebar */
+
+.sidebar-wrapper {
+    width: 400px;
+    position:absolute;
+    top:52px;
+    bottom:0;
+    left:0;
+    background-color: $gray-dark;
+    // padding-left: 15px;
+    padding-top: 15px;
+}
+
+.sidebar-heading {
+    color: $clouds;
+}
+
+/* Map */
+.map-wrapper {
+    // position: relative;
+    width: calc(100% - 400px);
+    height: auto;
+}
+
+#sidebar {
+    overflow-y: scroll;
+}
+
+.ss-container {
+    float: left;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#map { position:absolute; top:52px; bottom:0; left: 400px; width: calc(100% - 400px); }
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+
+    /* Remove the padding we set earlier */
+    .header,
+    .marketing,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 30px;
+    }
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+        border-bottom: 0;
+    }
+}
+
+.search {
+    background-color: darken($brand-primary, 10%);
+    width: 200px;
+    border-color: darken($brand-primary, 15%);
+    color:    darken($clouds, 10%);
+}
+
+.fa-2 {
+    font-size: 1.4em;
+    color: darken($clouds, 10%);
+}
+
+.fa-search {
+    padding-left: 10px;
+    padding-top: 7px;
+}
+
+#place{
+    margin-left: 10px;
+}
+
+.search:focus {
+    border-color: darken($brand-primary, 10%);
+}
+
+.search::-webkit-input-placeholder { /* WebKit browsers */
+    color:    darken($clouds, 10%);
+}
+.search:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    darken($clouds, 10%);
+}
+.search::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    darken($clouds, 10%);
+}
+.search:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    darken($clouds, 10%);
+}
+
+// Leaflet Popup
+.leaflet-container h1 {
+   font-size: 36px;
+   margin-bottom: 0px;
+}
+
+.leaflet-container h2 {
+   font-size: 30px;
+   margin-bottom: 0px;
+}
+
+.leaflet-container h3 {
+   font-size: 24px;
+   margin-bottom: 0px;
+}
+
+.leaflet-container h4 {
+   font-size: 18px;
+   margin-bottom: 0px;
+}
+
+.leaflet-container h5 {
+   font-size: 14px;
+   margin-bottom: 0px;
+}
+
+.leaflet-container h6 {
+   font-size: 12px;
+   margin-bottom: 0px;
+}
+
+.leaflet-container p {
+   font-size: 14px;
+   margin-bottom: 0px;
+}
+
+.centered {
+   text-align: center;
+}
+
+#addToItineraryModal {
+    height: 400px;
+    top: calc(50% - 200px) !important;
+}
+
+#itineraryDatesModal {
+    height: 1000px;
+    top: calc(50% - 200px) !important;
+}
+
+.picker__nav--next, .picker__nav--prev {
+    width: 2em;
+    height: 2em;
+}
+
+.itinerary-date-list {
+    color: $clouds;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.itinerary-date-list > li {
+    width: 350px;
+}
+
+.date {
+    margin-right: 0px;
+}
+
+.white-divider {
+    background-color: $clouds;
+}
+
+.add-icon, .print-icon {
+    padding-right: 10px;
+}
+
+.btn-transparent {
+    background-color: transparent;
+    color: $clouds;
+    border-color: transparent;
+    padding: 0px;
+}
+
+.btn-transparent:hover {
+    background-color: transparent;
+    color: darken($clouds, 10%);
+    border-color: transparent;
+}
+
+hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 0;
+    border-top: 2px solid $gray-lighter;
+}
+
+.input-group {
+    margin-bottom: 10px;
+}
+
+.form-control[readonly] {
+    cursor: allowed;
+    background-color: white;
+}
+
+.input-group.input-group-lg {
+  border-bottom-right-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+div.fancy-select ul.options {
+    -webkit-padding-start: 0px;
+    min-width: 400px;
+}
+
+div.fancy-select div.trigger {
+    width: 400px;
+    margin-bottom: 20px;
+}
+
+.fancy-wrapper {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.circular {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #3498db;
+}
+
+.close {
+    color: $clouds;
+    opacity: 0.7;
+    position: relative;
+    margin-top: -30px;
+}
+
+.edit {
+    opacity: 0.7;
+    position: relative;
+    margin-top: -30px;
+    margin-right: 25px;
+    float: right;
+}
+
+.close:hover, .close:focus {
+    color: darken($clouds, 20%);
+    cursor: pointer;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+
+.fa-compass {
+    font-size: 1.1em;
+}
+
+.venue-list {
+    list-style: none;
+    -webkit-padding-start: 30px;
+}
+
+.venue-list > li:before {
+    font-family: 'FontAwesome';
+    content: '\f054';
+    font-size: 0.8em;
+    margin:0 5px 0 -15px;
+    color: $clouds;
+}
+
+.venue-list > li {
+    margin-bottom: 0.3em;
+}
+
+a {
+    text-decoration: none;
+    color: $clouds;
+}
+
+a:hover, a:focus {
+    color: darken($clouds, 20%);
+    text-decoration: none;
+}
+
+.image-wrapper {
+    margin-bottom: 1em;
+}
+
+// .image {
+//     width: 100% !important;
+// }
+
+#itinerary-wrapper {
+    margin-left: 18px;
+    width: 350px;
+}
+
+.carousel-inner,.carousel,.item,.container,.fill {
+  height:300px;
+  width:100%;
+}
+
+.carousel-control .fa-chevron-right {
+    right: 50%;
+}
+
+.carousel-control .fa-chevron-left {
+    left: 50%;
+}
+
+.carousel-control .icon-prev, .carousel-control .icon-next, .carousel-control .fa-chevron-left, .carousel-control .fa-chevron-right {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    display: inline-block;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.fa-padding {
+    padding-right: 0.5em;
+}
+
+#rating.pull-left {
+    margin-left: 0.8em;
+}
+
+.number {
+    background-color: $brand-success;
+    padding: 5px;
+    @include border-radius(3px);
+    color: $clouds;
+}
+
+.comment {
+    padding-left: 30px;
+}
+
+.comment-header {
+    margin-top: 1em;
+}
+
+.addMarginTop {
+    margin-top: 0.5em;
+}
+
+#helpButton {
+  padding-top: 7px;
+  padding-right: 10px;
+}
+
+.sortable {
+    list-style: none;
+    min-height: 44px;
+}
+
+.fa-align-justify {
+    padding-right: 1em;
+}
+
+.fa-floppy-o {
+    padding-right: 0.5em;
+}
+
+.h4-span {
+    font-family: 'Arvo', serif;
+    font-size: 18px;
+}
+
+.stitched {
+   padding: 20px;
+   margin: 10px;
+   line-height: 1.3em;
+   border: 2px dashed #666;
+   border-radius: 10px;
+}
+
+.date-edit {
+    padding-top: 0.3em;
+}
+
+.darker-divider {
+    border-top: 2px solid darken(#eeeeee, 10%);
+}
+
+.alert {
+    z-index: 1000;
+    // position: absolute;
+    // top: 70px;
+    // left: 410px;
+    // width: calc(100% - 420px);
+}
+
+.alert-container {
+    width: 100%;
+    position: absolute;
+    top: 80px;
+    right: 0px;
+}
