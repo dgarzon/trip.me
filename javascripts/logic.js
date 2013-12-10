@@ -261,7 +261,9 @@ $(document).ready(function(){
                 features: features
             });
         })
-        .fail(function(jqXHR, textStatus, errorThrown) { $(".alert").delay(200).addClass("in").fadeOut(4000); })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+            $(".alert").delay(200).addClass("in").fadeOut(4000);
+        })
         .always(function() { NProgress.done(); });
 
     }, false);

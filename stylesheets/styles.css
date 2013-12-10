@@ -8194,31 +8194,25 @@ a:hover, a:focus {
 }
 
 /* line 475, ../sass/styles.scss */
-.alert {
-  z-index: 1000;
-}
-
-/* line 479, ../sass/styles.scss */
 .alert-container {
-  width: 100%;
   position: absolute;
   top: 80px;
   right: 15px;
 }
 
-/* line 486, ../sass/styles.scss */
+/* line 481, ../sass/styles.scss */
 span.normal {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-/* line 490, ../sass/styles.scss */
+/* line 485, ../sass/styles.scss */
 #deleteFooter {
   padding-bottom: 0px;
   padding-top: 0px;
   border-top: none;
 }
 
-/* line 496, ../sass/styles.scss */
+/* line 491, ../sass/styles.scss */
 .addMarginTop {
   margin-top: 1em;
 }

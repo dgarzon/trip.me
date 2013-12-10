@@ -472,12 +472,7 @@ a:hover, a:focus {
     border-top: 2px solid darken(#eeeeee, 10%);
 }
 
-.alert {
-    z-index: 1000;
-}
-
 .alert-container {
-    width: 100%;
     position: absolute;
     top: 80px;
     right: 15px;
