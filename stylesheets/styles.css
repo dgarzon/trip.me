@@ -8200,7 +8200,7 @@ a:hover, a:focus {
 
 /* line 479, ../sass/styles.scss */
 .alert-container {
-  width: 100%;
+  /*width: 100%;*/
   position: absolute;
   top: 80px;
   right: 15px;
