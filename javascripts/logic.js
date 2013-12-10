@@ -906,30 +906,38 @@ $(document).ready(function(){
     });
 
     $( document ).on( 'click', '.close', function (e) {
+        $('#confirmDeleteModal').modal('toggle');
         var id = $(this).parent().attr('id');
-        var name = id.slice(10).split('-').join(' ').titleize();
 
-        $.each(itineraries, function(i){
-            if (itineraries[i].name === name) {
-                itineraries.splice(i, 1);
-                return false;
-            }
+        $('#yesSure').on( 'click', function () {
+            var name = id.slice(10).split('-').join(' ').titleize();
+
+            $.each(itineraries, function(i){
+                if (itineraries[i].name === name) {
+                    itineraries.splice(i, 1);
+                    return false;
+                }
+            });
+
+            var elems = $wrap.packery('getItemElements');
+
+            var elem = elems.filter(function( elem ) {
+                if (elem.id == id)
+                    return elem;
+            });
+
+            $wrap.packery()
+                .packery('remove', elem);
+
+            $wrap.packery();
+            $('#' + id).remove();
+
+            window.localStorage["itineraries"] = JSON.stringify(itineraries);
         });
 
-        var elems = $wrap.packery('getItemElements');
-
-        var elem = elems.filter(function( elem ) {
-            if (elem.id == id)
-                return elem;
+        $('#noCancel').on( 'click', function () {
+            $('#confirmDeleteModal').modal('hide');
         });
-
-        $wrap.packery()
-            .packery('remove', elem);
-
-        $wrap.packery();
-        $('#' + id).remove();
-
-        window.localStorage["itineraries"] = JSON.stringify(itineraries);
     });
 
     Date.prototype.addDays = function(days) {

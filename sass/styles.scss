@@ -219,8 +219,8 @@ body {
 }
 
 #confirmDeleteModal {
-    height: 200px;
-    top: calc(50% - 100px) !important;
+    height: 220px;
+    top: calc(50% - 200px) !important;
 }
 
 #itineraryDatesModal {
@@ -489,4 +489,14 @@ a:hover, a:focus {
 
 span.normal {
     font-family: 'Source Sans Pro', sans-serif;
+}
+
+#deleteFooter {
+    padding-bottom: 0px;
+    padding-top: 0px;
+    border-top: none;
+}
+
+.addMarginTop {
+    margin-top: 1em;
 }
