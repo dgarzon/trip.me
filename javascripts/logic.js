@@ -132,7 +132,7 @@ $(document).ready(function(){
                 html += '<ul class="venue-list" id="' + list_id + '">';
 
                 for (var k = 0; k < itineraries[i].dates[j].venues.length; k++){
-                    newVenue = new Venue(itineraries[i].dates[j].venues[k].id, itineraries[i].dates[j].venues[k].name, itineraries[i].dates[j].venues[k].address, itineraries[i].dates[j].venues[k].city, itineraries[i].dates[j].venues[k].state, itineraries[i].dates[j].venues[k].country, itineraries[i].dates[j].venues[k].category, itineraries[i].dates[j].venues[k].lng, itineraries[i].dates[j].venues[k].lat);
+                    newVenue = new Venue(itineraries[i].dates[j].venues[k].id, itineraries[i].dates[j].venues[k].name, itineraries[i].dates[j].venues[k].address, itineraries[i].dates[j].venues[k].city, itineraries[i].dates[j].venues[k].state, itineraries[i].dates[j].venues[k].country, itineraries[i].dates[j].venues[k].category, itineraries[i].dates[j].venues[k].lng, itineraries[i].dates[j].venues[k].lat, itineraries[i].dates[j].venues[k].rating);
                     newDates[j].venues.push(newVenue);
                     html += '<li><a href="javascript:void(0)" class="venue-detail" data-venueid="' + newVenue.id + '">' + newVenue.name + '</a></li>';
                 }
