@@ -8198,27 +8198,27 @@ a:hover, a:focus {
   z-index: 1000;
 }
 
-/* line 483, ../sass/styles.scss */
+/* line 479, ../sass/styles.scss */
 .alert-container {
   width: 100%;
   position: absolute;
   top: 80px;
-  right: 0px;
+  right: 15px;
 }
 
-/* line 490, ../sass/styles.scss */
+/* line 486, ../sass/styles.scss */
 span.normal {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-/* line 494, ../sass/styles.scss */
+/* line 490, ../sass/styles.scss */
 #deleteFooter {
   padding-bottom: 0px;
   padding-top: 0px;
   border-top: none;
 }
 
-/* line 500, ../sass/styles.scss */
+/* line 496, ../sass/styles.scss */
 .addMarginTop {
   margin-top: 1em;
 }

@@ -474,17 +474,13 @@ a:hover, a:focus {
 
 .alert {
     z-index: 1000;
-    // position: absolute;
-    // top: 70px;
-    // left: 410px;
-    // width: calc(100% - 420px);
 }
 
 .alert-container {
     width: 100%;
     position: absolute;
     top: 80px;
-    right: 0px;
+    right: 15px;
 }
 
 span.normal {
