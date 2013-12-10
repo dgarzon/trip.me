@@ -71,15 +71,17 @@ ItineraryDate.prototype.getCleanMonth = function getCleanMonth () {
     }
 }
 
-function Venue (id, name, address, city, country, category, lng, lat) {
+function Venue (id, name, address, city, state, country, category, lng, lat, rating) {
     this.id = id;
     this.name = name;
     this.address = address;
     this.city = city;
+    this.state = state;
     this.country = country;
     this.category = category;
     this.lng = lng;
     this.lat = lat;
+    this.rating = rating;
 }
 
 $(document).ready(function(){
@@ -130,7 +132,7 @@ $(document).ready(function(){
                 html += '<ul class="venue-list" id="' + list_id + '">';
 
                 for (var k = 0; k < itineraries[i].dates[j].venues.length; k++){
-                    newVenue = new Venue(itineraries[i].dates[j].venues[k].id, itineraries[i].dates[j].venues[k].name, itineraries[i].dates[j].venues[k].address, itineraries[i].dates[j].venues[k].city, itineraries[i].dates[j].venues[k].country, itineraries[i].dates[j].venues[k].category, itineraries[i].dates[j].venues[k].lng, itineraries[i].dates[j].venues[k].lat);
+                    newVenue = new Venue(itineraries[i].dates[j].venues[k].id, itineraries[i].dates[j].venues[k].name, itineraries[i].dates[j].venues[k].address, itineraries[i].dates[j].venues[k].city, itineraries[i].dates[j].venues[k].state, itineraries[i].dates[j].venues[k].country, itineraries[i].dates[j].venues[k].category, itineraries[i].dates[j].venues[k].lng, itineraries[i].dates[j].venues[k].lat);
                     newDates[j].venues.push(newVenue);
                     html += '<li><a href="javascript:void(0)" class="venue-detail" data-venueid="' + newVenue.id + '">' + newVenue.name + '</a></li>';
                 }
@@ -226,7 +228,8 @@ $(document).ready(function(){
                            state: venues[i]['venue']['location']['state'],
                            country: venues[i]['venue']['location']['country'],
                            address: venues[i]['venue']['location']['address'],
-                           category: venues[i]['venue']['categories'][0]['name']
+                           category: venues[i]['venue']['categories'][0]['name'],
+                           rating: venues[i]['venue']['rating']
                         }
 
                     });
@@ -244,7 +247,8 @@ $(document).ready(function(){
                            city: venues[i]['venue']['location']['city'],
                            state: venues[i]['venue']['location']['state'],
                            country: venues[i]['venue']['location']['country'],
-                           address: venues[i]['venue']['location']['address']
+                           address: venues[i]['venue']['location']['address'],
+                           rating: venues[i]['venue']['rating']
                         }
                     });
                 }
@@ -302,10 +306,11 @@ $(document).ready(function(){
                             '<h5 class="popup-country">' + feature.properties.country + '</h5>' +
                             '<hr>' +
                             category_content +
+                            '<h5>Rating: <span>' + Number(feature.properties.rating)/2 + '</span></h5><hr>' +
                             '<div class="centered"><button type="button" class="btn btn-primary" id="openAddToItineraryModalButton" data-name="' + feature.properties.title +
                                 '" data-city="' + feature.properties.city + '" data-venueid="' + feature.properties.id + '" data-address="' + feature.properties.address +
                                 '" data-country="' + feature.properties.country + '" data-category="' + category_text + '" data-lng="' + feature.geometry.coordinates[0] +
-                                '" data-lat="' + feature.geometry.coordinates[1] + '" data-state="' + feature.properties.state + '">' +
+                                '" data-lat="' + feature.geometry.coordinates[1] + '" data-state="' + feature.properties.state + '" data-rating="' + feature.properties.rating + '">' +
                                 '<i class="fa fa-plus add-icon"></i>Add to Itinerary</button></div>';
 
         marker.bindPopup(popupContent,{
@@ -369,8 +374,10 @@ $(document).ready(function(){
         $('#saveVenueToItinerary').attr('data-name', this.dataset.name);
         $('#saveVenueToItinerary').attr('data-address', this.dataset.address);
         $('#saveVenueToItinerary').attr('data-city', this.dataset.city);
+        $('#saveVenueToItinerary').attr('data-state', this.dataset.state);
         $('#saveVenueToItinerary').attr('data-country', this.dataset.country);
         $('#saveVenueToItinerary').attr('data-category', this.dataset.category);
+        $('#saveVenueToItinerary').attr('data-rating', this.dataset.rating);
         $('#saveVenueToItinerary').attr('data-lng', this.dataset.lng);
         $('#saveVenueToItinerary').attr('data-lat', this.dataset.lat);
 
@@ -383,14 +390,17 @@ $(document).ready(function(){
         $('#saveVenueToItinerary').attr('data-name', '');
         $('#saveVenueToItinerary').attr('data-address', '');
         $('#saveVenueToItinerary').attr('data-city', '');
+        $('#saveVenueToItinerary').attr('data-state', '');
         $('#saveVenueToItinerary').attr('data-country', '');
         $('#saveVenueToItinerary').attr('data-category', '');
+        $('#saveVenueToItinerary').attr('data-rating', '');
         $('#saveVenueToItinerary').attr('data-lng', '');
         $('#saveVenueToItinerary').attr('data-lat', '');
     });
 
     $( document ).on( 'click', 'button#saveVenueToItinerary', function (e) {
-        var venue = new Venue(this.dataset.venueid, this.dataset.name, this.dataset.address, this.dataset.city, this.dataset.country, this.dataset.category, this.dataset.lng, this.dataset.lat);
+        var venue = new Venue(this.dataset.venueid, this.dataset.name, this.dataset.address, this.dataset.city, this.dataset.state, this.dataset.country, this.dataset.category, this.dataset.lng, this.dataset.lat, this.dataset.rating);
+        console.log(venue.rating);
         var itinerary = itineraries.filter(function( itinerary ) {
             if (itinerary.name == $('#availableItineraries').val().titleize())
                 return itinerary;
@@ -670,7 +680,8 @@ $(document).ready(function(){
                        state: itinerary[0].dates[i].venues[j].state,
                        country: itinerary[0].dates[i].venues[j].country,
                        address: itinerary[0].dates[i].venues[j].address,
-                       category: itinerary[0].dates[i].venues[j].category
+                       category: itinerary[0].dates[i].venues[j].category,
+                       rating: itinerary[0].dates[i].venues[j].rating
                     }
                 });
                 counter += 1;
