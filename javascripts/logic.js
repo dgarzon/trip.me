@@ -306,7 +306,7 @@ $(document).ready(function(){
                             '<h5 class="popup-country">' + feature.properties.country + '</h5>' +
                             '<hr>' +
                             category_content +
-                            '<h5>Rating: <span>' + Number(feature.properties.rating)/2 + '</span></h5><hr>' +
+                            '<h5>Rating: <span class="normal">' + Number(feature.properties.rating)/2 + ' / 5' + '</span></h5><hr>' +
                             '<div class="centered"><button type="button" class="btn btn-primary" id="openAddToItineraryModalButton" data-name="' + feature.properties.title +
                                 '" data-city="' + feature.properties.city + '" data-venueid="' + feature.properties.id + '" data-address="' + feature.properties.address +
                                 '" data-country="' + feature.properties.country + '" data-category="' + category_text + '" data-lng="' + feature.geometry.coordinates[0] +

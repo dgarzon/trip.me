@@ -8199,3 +8199,8 @@ a:hover, a:focus {
   top: 80px;
   right: 0px;
 }
+
+/* line 485, ../sass/styles.scss */
+span.normal {
+  font-family: 'Source Sans Pro', sans-serif;
+}
